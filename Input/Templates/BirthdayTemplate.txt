@@ -1,0 +1,10 @@
+1)   _ May your birthday be full of happy hours and special moments to remember for a long long time! _ Happy Birthday, {0}!
+2)   _ This birthday, We wish you abundant happiness and love. May you be gifted with life's biggest joys and never-ending bliss. _ Happy Birthday, {0}!
+3)   _ Best things are yet to come this year, celebrate being special on every day _ Happy birthday, {0}!
+4)   _ Happy birthday, {0}! _ May this year be filled with lots of love and happiness.
+5)   _ May your path ahead be filled with all the love and success you deserve _. Happy Birthday, {0}!
+6)   _ We wish your coming year surprise you with the happiness of smiles, the feeling of love and so on. I hope you will find plenty of sweet memories to cherish forever. _ Happy birthday, {0}!
+7)   _ Let this day be full of joy and celebration. _ We wish you an outstanding and fabulous birthday, {0}!
+8)   _ Wishing you all the great things in life, hope this day will bring you an extra share of all that makes you happiest. _ Happy birthday, {0}!
+9)   _ Happy moments. Happy thoughts. Happy dreams. Happy feelings. _ Happy birthday, {0}!
+10)  _ We hope your day is filled with lots of love and laughter! May all of your birthday wishes come true. _ Happy Birthday, {0}!
