@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>917,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>933,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FetchTodayCelebrants_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -69,8 +69,8 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="FetchTodayCelebrants" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -108,14 +108,13 @@
           <av:PointCollection x:Key="ConnectorLocation">300,424.5 300,474.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap2010:Annotation.AnnotationText="Filters today's celebrants data using LINQ. The data is added to the list in the following format:&#xD;&#xA;For birthday, &#xD;&#xA;{EngineerName}_Birthday&#xD;&#xA;For Work Anniversary,&#xD;&#xA;{EngineerName}_{numberOfYearsinUiPath}_Anniversary" DisplayName="Assign - Filter today data" sap:VirtualizedContainerService.HintSize="262,196" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign sap2010:Annotation.AnnotationText="Filters today's celebrants data using LINQ. The data is added to the list in the following format:&#xA;For birthday, &#xA;{EngineerName}_Birthday&#xA;For Work Anniversary,&#xA;{EngineerName}_{numberOfYearsinUiPath}_Anniversary" DisplayName="Assign - Filter today data" sap:VirtualizedContainerService.HintSize="262,196" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:List(x:String)">[out_list_str_TodayCelebrants]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="scg:List(x:String)" xml:space="preserve">[(From row In in_dt_InputData.Select()
-Where row("Birthday").ToString.Trim = now.ToString("dd-MM") Or
-            row("Work Anniversary").ToString.Trim.Substring(0,5) = now.ToString("dd-MM")
+Where row("Birthday").ToString.Trim = now.ToString("dd-MM") Or  row("Work Anniversary").ToString.Trim.Substring(0,5) = now.ToString("dd-MM")
 Select If(row("Birthday").ToString.Trim = now.ToString("dd-MM"), 
 																										row("Name").ToString+"_Birthday",
 																										row("Name").ToString+"_"+(now.Year-DateTime.ParseExact(row("Work Anniversary").ToString,"dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture).Year).Tostring+"_Anniversary")).ToList()]</InArgument>
@@ -141,15 +140,9 @@ Select If(row("Birthday").ToString.Trim = now.ToString("dd-MM"),
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TrackAndLogSequenceInfo workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utilities\Framework\TrackAndLogSequenceInfo.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_dict_ConfigValues">
-            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_dict_ConfigValues" />
-          </InOutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_str_SequenceInfo">
-            <Literal x:TypeArguments="x:String">Fetching today's celebrants</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_LogSequenceInfo">
-            <Literal x:TypeArguments="x:Boolean" />
-          </InArgument>
+          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_dict_ConfigValues">[io_dict_ConfigValues]</InOutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_SequenceInfo">Fetching today's celebrants</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_LogSequenceInfo">False</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">

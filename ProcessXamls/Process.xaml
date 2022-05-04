@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>983,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>933,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -104,10 +104,9 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>PSA.Slack.Lib</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,742" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="str_TimeZone" />
       <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_InputData" />
@@ -129,12 +128,13 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+        <x:Double x:Key="Height">706.04</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID5">
+    <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -160,7 +160,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
-        <p:ReadGSheet sap:VirtualizedContainerService.HintSize="379,51" sap2010:WorkflowViewState.IdRef="ReadGSheet_1" in_int_StorageFileDownloadTimeout="[CInt(io_dict_ConfigValues(&quot;Shared_Timeout_S&quot;).ToString)]" in_str_GSheetID="[io_dict_ConfigValues(&quot;BA_GSheetID&quot;).ToString]" in_str_GSheetName="[io_dict_ConfigValues(&quot;BA_GSheetName&quot;).ToString]" in_str_ServiceAccountEmail="[io_dict_ConfigValues(&quot;Shared_GoogleAPIServiceAccountEmail&quot;).ToString]" in_str_StorageBucketName="[io_dict_ConfigValues(&quot;Shared_GoogleAPICredentialStorageBucketName&quot;).ToString]" in_str_StorageFilePath="[io_dict_ConfigValues(&quot;Shared_GoogleAPICredentialStorageFilePath&quot;).ToString]" out_dt_Table="[dt_InputData]">
+        <p:ReadGSheet sap:VirtualizedContainerService.HintSize="379,51" sap2010:WorkflowViewState.IdRef="ReadGSheet_1" in_bool_IncludeHeaders="True" in_int_StorageFileDownloadTimeout="[CInt(io_dict_ConfigValues(&quot;Shared_Timeout_S&quot;).ToString)]" in_str_GSheetID="[io_dict_ConfigValues(&quot;BA_GSheetID&quot;).ToString]" in_str_GSheetName="[io_dict_ConfigValues(&quot;BA_GSheetName&quot;).ToString]" in_str_ServiceAccountEmail="[io_dict_ConfigValues(&quot;Shared_GoogleAPIServiceAccountEmail&quot;).ToString]" in_str_StorageBucketName="[io_dict_ConfigValues(&quot;Shared_GoogleAPICredentialStorageBucketName&quot;).ToString]" in_str_StorageFilePath="[io_dict_ConfigValues(&quot;Shared_GoogleAPICredentialStorageFilePath&quot;).ToString]" out_dt_Table="[dt_InputData]">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -234,29 +234,30 @@
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">50,524.5</av:Point>
                           <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">150,575.5 150,625.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,190" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[list_str_TodayCelebrants]">
+                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - Celebration" sap:VirtualizedContainerService.HintSize="434,190" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[list_str_TodayCelebrants]">
                         <ui:ForEach.Body>
                           <ActivityAction x:TypeArguments="x:String">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="346,641" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,355" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Extract Engineer Name and Slack user ID" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <Sequence DisplayName="Extract Engineer Name and Slack user ID" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                <Assign DisplayName=" Assign - Extract Engineer Name from Today Celebrant List" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[str_EngineerName]</OutArgument>
                                   </Assign.To>
@@ -264,7 +265,7 @@
                                     <InArgument x:TypeArguments="x:String">[item.Split(CChar("_"))(0).Trim]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                <Assign DisplayName="Assign - Get Engr Slack ID based on name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[str_EngineerSlackId]</OutArgument>
                                   </Assign.To>
@@ -272,7 +273,7 @@
                                     <InArgument x:TypeArguments="x:String">[(From row In dt_InputData.Select Where row("Name").ToString.Equals(str_EngineerName) Select CStr(row("SlackId"))).ToList(0).trim]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                <Assign DisplayName="Assign - Format Slack ID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[str_FormatEngineerSlackId]</OutArgument>
                                   </Assign.To>
@@ -281,7 +282,7 @@
                                   </Assign.Value>
                                 </Assign>
                               </Sequence>
-                              <Sequence sap2010:Annotation.AnnotationText="Check if the Engineer Slack account is active or deactivated" DisplayName="Check Engineer's Slack account status" sap:VirtualizedContainerService.HintSize="304,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                              <Sequence sap2010:Annotation.AnnotationText="Check if the Engineer Slack account is active or deactivated" DisplayName="Check Engineer's Slack account status" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -304,7 +305,7 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </Assign>
                               </Sequence>
-                              <If Condition="[bool_UserActive]" DisplayName="If - Engineer still active?" sap:VirtualizedContainerService.HintSize="591,740" sap2010:WorkflowViewState.IdRef="If_2">
+                              <If Condition="[bool_UserActive]" DisplayName="If - Engineer still active?" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_2">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -315,7 +316,7 @@
                                   <Sequence DisplayName="ACTIVE" sap:VirtualizedContainerService.HintSize="304,582" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
@@ -423,7 +424,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </p:SearchAndDownloadFile>
-                                    <Assign sap2010:Annotation.AnnotationText="Format a message to be posted in Slack." sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                    <Assign sap2010:Annotation.AnnotationText="Format a message to be posted in Slack." DisplayName="Assign - Frame Slack Message" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_1">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[str_FormattedMessage]</OutArgument>
                                       </Assign.To>
@@ -447,14 +448,14 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </p1:UploadFileInSlackMessage>
-                                    <Delay DisplayName="Delay - 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                                    <Delay DisplayName="Delay - 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="DEACTIVATED" sap:VirtualizedContainerService.HintSize="242,234" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                  <Sequence DisplayName="DEACTIVATED" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
@@ -466,7 +467,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:LogMessage>
-                                    <p1:PostMessageToSlack out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from Birthday Anniversary process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]">
+                                    <p1:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from Birthday Anniversary process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -481,6 +482,40 @@
                           </ActivityAction>
                         </ui:ForEach.Body>
                       </ui:ForEach>
+                      <FlowStep.Next>
+                        <FlowStep x:Name="__ReferenceID5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">50,625.5</av:Point>
+                              <av:Size x:Key="ShapeSize">200,66</av:Size>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Files Cleanup" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DeleteFilesInFolder workflow - Birthday Folder" sap:VirtualizedContainerService.HintSize="356,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="ProcessXamls\Utilities\DeleteFilesInFolder.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_str_FolderPath">[io_dict_ConfigValues("BirthdayImageDownloadPath").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_str_FileExtension">.png</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DeleteFilesInFolder workflow -  Anniversary Folder" sap:VirtualizedContainerService.HintSize="356,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="ProcessXamls\Utilities\DeleteFilesInFolder.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_str_FolderPath">[io_dict_ConfigValues("WorkAnniversaryImageDownloadPath").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_str_FileExtension">.png</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                          </Sequence>
+                        </FlowStep>
+                      </FlowStep.Next>
                     </FlowStep>
                   </FlowDecision.True>
                   <FlowDecision.False>
@@ -512,5 +547,6 @@
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
   </Flowchart>
 </Activity>

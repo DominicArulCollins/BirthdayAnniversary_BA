@@ -10,7 +10,6 @@
 *Process version:* {7}
 *Robot name:* {8}
 *Triggered from:* {9}
-*Workflow Trace - Breadcrumbs:*
 {10}
 -----------------------
 

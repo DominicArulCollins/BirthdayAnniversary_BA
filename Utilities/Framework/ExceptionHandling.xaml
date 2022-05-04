@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>983,1103</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>871,1223</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExceptionHandling_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -84,7 +84,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="ExceptionHandling" sap:VirtualizedContainerService.HintSize="634,1038" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="ExceptionHandling" sap:VirtualizedContainerService.HintSize="634,1158" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="str_SlackPostMessageAPIResult" />
       <Variable x:TypeArguments="njl:JObject" Name="jObj_SlackPostMessageAPIResult" />
@@ -126,6 +126,11 @@
       </Variable>
       <Variable x:TypeArguments="x:String" Name="str_SlackExceptionMessage" />
       <Variable x:TypeArguments="x:String" Name="str_IssueDescription" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_CreateJira">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Boolean" Value="True" />
+        </Variable.Default>
+      </Variable>
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -133,18 +138,18 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
-        <x:Double x:Key="Height">1001.5</x:Double>
+        <x:Double x:Key="Height">1121.5</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID9</x:Reference>
+      <x:Reference>__ReferenceID10</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">190,835.5</av:Point>
+          <av:Point x:Key="ShapeLocation">190,955.5</av:Point>
           <av:Size x:Key="ShapeSize">200,108</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">290,943.5 290,979.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">290,1063.5 290,1099.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If sap2010:Annotation.AnnotationText="Send a Slack message along with exception details when an error occurs. " Condition="[Cbool(io_dict_ConfigValues(&quot;SendExceptionSlackMessage&quot;))]" DisplayName="If - Send Slack Message?" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="If_2">
@@ -162,21 +167,14 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="PostMessageToSlack" sap:VirtualizedContainerService.HintSize="421,533" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="PostMessageToSlack" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TrackAndLogSequenceInfo workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utilities\Framework\TrackAndLogSequenceInfo.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_dict_ConfigValues">[io_dict_ConfigValues]</InOutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_str_SequenceInfo">Posting a Slack message</InArgument>
-                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_LogSequenceInfo">False</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-              <Assign sap2010:Annotation.AnnotationText="If Jira was created, add it's link to the exception Slack message." sap:VirtualizedContainerService.HintSize="379,64" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign sap2010:Annotation.AnnotationText="If Jira was created, add it's link to the exception Slack message." sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_8">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[str_AdditionalMessage]</OutArgument>
                 </Assign.To>
@@ -192,7 +190,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <p:PostMessageToSlack sap:VirtualizedContainerService.HintSize="379,185" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[str_SlackExceptionMessage+str_AdditionalMessage]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" out_str_Result="[str_SlackPostMessageAPIResult]" />
+              <p:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[str_SlackExceptionMessage+str_AdditionalMessage]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" out_str_Result="[str_SlackPostMessageAPIResult]" />
             </Sequence>
             <Sequence DisplayName="ReplyToSlackMessageInThreads" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
@@ -201,15 +199,8 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TrackAndLogSequenceInfo workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Utilities\Framework\TrackAndLogSequenceInfo.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_dict_ConfigValues">[io_dict_ConfigValues]</InOutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_str_SequenceInfo">Replying to a Slack message in threads</InArgument>
-                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_LogSequenceInfo">False</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jObj_SlackPostMessageAPIResult]" JsonString="[str_SlackPostMessageAPIResult]" />
-              <p:ReplyToSlackMessageInThreads sap:VirtualizedContainerService.HintSize="379,22" sap2010:WorkflowViewState.IdRef="ReplyToSlackMessageInThreads_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[io_dict_ConfigValues(&quot;TrackSequence&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" in_str_Ts="[jObj_SlackPostMessageAPIResult(&quot;ts&quot;).ToString]" />
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jObj_SlackPostMessageAPIResult]" JsonString="[str_SlackPostMessageAPIResult]" />
+              <p:ReplyToSlackMessageInThreads in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ReplyToSlackMessageInThreads_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[io_dict_ConfigValues(&quot;TrackSequence&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" in_str_Ts="[jObj_SlackPostMessageAPIResult(&quot;ts&quot;).ToString]" />
             </Sequence>
           </Sequence>
         </If.Then>
@@ -229,11 +220,11 @@
         <FlowStep x:Name="__ReferenceID0">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">190,979.5</av:Point>
+              <av:Point x:Key="ShapeLocation">190,1099.5</av:Point>
               <av:Size x:Key="ShapeSize">200,22</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Throw DisplayName="Throw - For Job Faulted status" Exception="[new Exception(io_dict_ConfigValues(&quot;ExceptionMessage&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
+          <Throw DisplayName="Throw - For Job Faulted status" Exception="[new Exception(io_dict_ConfigValues(&quot;ExceptionMessage&quot;).ToString+str_ExceptionMessage)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -244,7 +235,7 @@
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
-    <FlowStep x:Name="__ReferenceID9">
+    <FlowStep x:Name="__ReferenceID10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -265,7 +256,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID6">
+        <FlowStep x:Name="__ReferenceID7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,218.5</av:Point>
@@ -275,12 +266,27 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ExtractInformationFromException workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Utilities\Framework\ExtractInformationFromException.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[in_Exception]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_exception_Message">[str_ExceptionMessage]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_exception_StackTrace">[str_ExceptionStackTrace]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_exception_ActivityFullName">[str_ExceptionActivityFullName]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_exception_ActivityDisplayName">[str_ExceptionActivityDisplayName]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_exception_WorkflowFile">[str_ExceptionWorkflowFile]</OutArgument>
+              <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">
+                <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="in_Exception" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExMessage">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionMessage" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExStackTrace">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionStackTrace" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExActivityFullName">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionActivityFullName" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExActivityDisplayName">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionActivityDisplayName" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExWorkflowFile">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionWorkflowFile" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool_CreateJira">
+                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="bool_CreateJira" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -289,7 +295,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID7">
+            <FlowStep x:Name="__ReferenceID8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">200,309.5</av:Point>
@@ -297,7 +303,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,375.5 300,425.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Jira - Sequence" sap:VirtualizedContainerService.HintSize="304,262" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Jira - Sequence" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -356,7 +362,7 @@
                 </Assign>
               </Sequence>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID8">
+                <FlowStep x:Name="__ReferenceID9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">200,425.5</av:Point>
@@ -409,18 +415,18 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <av:Point x:Key="ShapeLocation">263.5,534.5</av:Point>
                           <av:Size x:Key="ShapeSize">73,87</av:Size>
-                          <av:PointCollection x:Key="TrueConnector">263.5,578 120,578 120,627</av:PointCollection>
+                          <av:PointCollection x:Key="TrueConnector">263.5,578 120,578 120,617</av:PointCollection>
                           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                          <av:PointCollection x:Key="FalseConnector">336.5,578 460,578 460,627</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">336.5,578 460,578 460,617</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.True>
                         <FlowStep x:Name="__ReferenceID4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">20,627</av:Point>
+                              <av:Point x:Key="ShapeLocation">20,617</av:Point>
                               <av:Size x:Key="ShapeSize">200,66</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">120,693 120,760 190,760</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">120,683 120,713 300,713 300,756.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Sequence DisplayName="UIA process flow" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
@@ -444,53 +450,66 @@
                             </Assign>
                           </Sequence>
                           <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID2">
+                            <FlowDecision x:Name="__ReferenceID2" DisplayName="CreateJira?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                              <FlowDecision.Condition>
+                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_CreateJira" />
+                              </FlowDecision.Condition>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">190,734.5</av:Point>
-                                  <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">290,785.5 290,835.5</av:PointCollection>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <av:Point x:Key="ShapeLocation">265,756.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">70,87</av:Size>
+                                  <av:PointCollection x:Key="TrueConnector">265,800 120,800 120,834.5</av:PointCollection>
+                                  <av:PointCollection x:Key="FalseConnector">335,800 420,800 420,1009.5 390,1009.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                                <ui:CommentOut.Body>
-                                  <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateJira workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Utilities\Jira\CreateJira.xaml">
-                                      <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_JiraServerUrl">[io_dict_ConfigValues("Shared_JiraServerUrl").ToString]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_UserName">[str_JiraAuthUserName]</InArgument>
-                                        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_secstr_ApiToken">[secstr_JiraAuthPassword]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_ProjectKey">[io_dict_ConfigValues("Shared_JiraProjectSpace").ToString]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_IssueType">[str_IssueType]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_IssueSummary">[str_IssueSummary]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_IssueDescription">[str_IssueDescription]</InArgument>
-                                        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_str_Components">[{io_dict_ConfigValues("ProcessName").ToString}]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_str_JiraAttachmentFilePath">[str_ExceptionImageFilePath]</InArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="out_str_JiraIssueId">[str_JiraIssueId]</OutArgument>
-                                      </ui:InvokeWorkflowFile.Arguments>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                    </ui:InvokeWorkflowFile>
-                                  </Sequence>
-                                </ui:CommentOut.Body>
-                              </ui:CommentOut>
-                              <FlowStep.Next>
+                              <FlowDecision.True>
+                                <FlowStep x:Name="__ReferenceID5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">20,834.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">120,885.5 120,1009.5 190,1009.5</av:PointCollection>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateJira workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Utilities\Jira\CreateJira.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_JiraServerUrl">[io_dict_ConfigValues("Shared_JiraServerUrl").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_UserName">[str_JiraAuthUserName]</InArgument>
+                                      <InArgument x:TypeArguments="ss:SecureString" x:Key="in_secstr_ApiToken">[secstr_JiraAuthPassword]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_ProjectKey">[io_dict_ConfigValues("Shared_JiraProjectSpace").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_IssueType">[str_IssueType]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_IssueSummary">[str_IssueSummary]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_IssueDescription">[str_IssueDescription]</InArgument>
+                                      <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_str_Components">[{io_dict_ConfigValues("ProcessName").ToString}]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_str_JiraAttachmentFilePath">[str_ExceptionImageFilePath]</InArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_str_JiraIssueId">[str_JiraIssueId]</OutArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InvokeWorkflowFile>
+                                  <FlowStep.Next>
+                                    <x:Reference>__ReferenceID1</x:Reference>
+                                  </FlowStep.Next>
+                                </FlowStep>
+                              </FlowDecision.True>
+                              <FlowDecision.False>
                                 <x:Reference>__ReferenceID1</x:Reference>
-                              </FlowStep.Next>
-                            </FlowStep>
+                              </FlowDecision.False>
+                            </FlowDecision>
                           </FlowStep.Next>
                         </FlowStep>
                       </FlowDecision.True>
                       <FlowDecision.False>
-                        <FlowStep x:Name="__ReferenceID5">
+                        <FlowStep x:Name="__ReferenceID6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">360,627</av:Point>
+                              <av:Point x:Key="ShapeLocation">360,617</av:Point>
                               <av:Size x:Key="ShapeSize">200,66</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">460,693 460,760 390,760</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">460,683 460,713 300,713 300,756.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Sequence DisplayName="non UIA process flow" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
@@ -526,10 +545,11 @@
     </FlowStep>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
-    <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
+    <x:Reference>__ReferenceID9</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
   </Flowchart>
 </Activity>

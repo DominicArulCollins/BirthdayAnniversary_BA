@@ -1,5 +1,5 @@
 {
-	"TrackSequence"			:	"Workflow Trace - Breadcrumbs",
+	"TrackSequence"			:	"*Workflow Trace - Breadcrumbs:*",
 	"KillProcess"			:	[
 						],
 	"SimpleAssets"			:	[
@@ -48,6 +48,6 @@
 							"BirthdayFolderId"			:	"117GpA_B-HBjgklRfXuGjjunDB1lQqiwQ",
 							"WorkAnniversaryFolderId"		:	"18ybweZIWgvAQQwvqEMumOISKo2tAnRR8"
 						},
-	"TagNotifyUserDeactivation"	:	"<@UBUHNSWGZ> <@U600QGWM9>"
+	"TagNotifyUserDeactivation"	:	"<@WLXPFFWS1> <@WLXNSLJ9W>"
 }
 
