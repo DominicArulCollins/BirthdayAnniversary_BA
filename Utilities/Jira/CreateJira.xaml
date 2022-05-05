@@ -47,7 +47,7 @@
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap2010:Annotation.AnnotationText>UPTF000000A0eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiQ3JlYXRlIGEgSmlyYSBJc3N1ZSIsIjxWZXJzaW9uPmtfX0JhY2tpbmdGaWVsZCI6MX0=</sap2010:Annotation.AnnotationText>
-  <sap:VirtualizedContainerService.HintSize>1052,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>946,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -138,7 +138,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,208.5 299.895,208.5 299.895,228.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uja:JiraScope ClientID="{x:Null}" ClientSecret="{x:Null}" Connection="{x:Null}" ContinueOnError="{x:Null}" JiraConnection="{x:Null}" ApiToken="[in_secstr_ApiToken]" AuthenticationType="Api Token" DisplayName="Jira Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="JiraScope_2" ServerURL="[in_str_JiraServerUrl]" UserName="[in_str_UserName]">
+      <uja:JiraScope ClientID="{x:Null}" ClientSecret="{x:Null}" Connection="{x:Null}" ContinueOnError="{x:Null}" JiraConnection="{x:Null}" ApiToken="[in_secstr_ApiToken]" AuthenticationType="Api Token" DisplayName="Jira Scope" sap:VirtualizedContainerService.HintSize="434,320" sap2010:WorkflowViewState.IdRef="JiraScope_2" ServerURL="[in_str_JiraServerUrl]" UserName="[in_str_UserName]">
         <uja:JiraScope.Body>
           <ActivityAction x:TypeArguments="usa:IObjectContainer">
             <ActivityAction.Argument>
@@ -164,7 +164,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uja:CreateIssue>
-              <If sap2010:Annotation.AnnotationText="Attachments are added only for UI automation based processes as the exception image is added to JIRA." Condition="[not String.IsNullOrEmpty(in_str_JiraAttachmentFilePath)]" DisplayName="If - JiraAttachmentFilePath not empty?" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_2">
+              <If sap2010:Annotation.AnnotationText="Attachments are added only for UI automation based processes as the exception image is added to JIRA." Condition="[not String.IsNullOrEmpty(in_str_JiraAttachmentFilePath)]" DisplayName="If - JiraAttachmentFilePath not empty?" sap:VirtualizedContainerService.HintSize="484,319" sap2010:WorkflowViewState.IdRef="If_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -173,7 +173,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <uja:AddAttachment Attachment="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add Attachment" FilePath="C:\Users\dominic.arulcollinsv\Downloads\image.png" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AddAttachment_2" IssueKey="[jiraIssue.Key.ToString]">
+                  <uja:AddAttachment Attachment="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add Attachment" FilePath="[in_str_JiraAttachmentFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AddAttachment_2" IssueKey="[jiraIssue.Key.ToString]">
                     <uja:AddAttachment.TelemetryProperties>
                       <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
                     </uja:AddAttachment.TelemetryProperties>
