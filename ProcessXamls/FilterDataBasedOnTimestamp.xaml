@@ -3,7 +3,7 @@
     <x:Property Name="io_dict_ConfigValues" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="io_dt_InputData" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>781,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1026,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -69,7 +69,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap:VirtualizedContainerService.HintSize="634,746" sap2010:WorkflowViewState.IdRef="Flowchart_7">
@@ -101,7 +100,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,351.5 297.141666666667,351.5 297.141666666667,381.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart sap2010:Annotation.AnnotationText="Find the region\geo for which the current job is being executed based on the timestamp. " DisplayName="TimezoneMapping" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Flowchart_6">
+      <Flowchart sap2010:Annotation.AnnotationText="Find the region\geo for which the current job is being executed based on the timestamp. " DisplayName="TimezoneMapping" sap:VirtualizedContainerService.HintSize="725,667" sap2010:WorkflowViewState.IdRef="Flowchart_6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -164,27 +163,6 @@
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">GMT+08:00</InArgument>
-              </Assign.Value>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </Assign>
-          </FlowStep>
-          <FlowStep x:Key="10" x:Name="__ReferenceID3">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">409,390</av:Point>
-                <av:Size x:Key="ShapeSize">262,60</av:Size>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="EST" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[str_TimeZone]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">GMT-05:00</InArgument>
               </Assign.Value>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -277,6 +255,27 @@
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
           </FlowStep>
+          <FlowStep x:Key="10" x:Name="__ReferenceID3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">409,390</av:Point>
+                <av:Size x:Key="ShapeSize">262,60</av:Size>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="EST" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[str_TimeZone]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">GMT-05:00</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+          </FlowStep>
         </FlowSwitch>
         <x:Reference>__ReferenceID0</x:Reference>
         <x:Reference>__ReferenceID1</x:Reference>
@@ -338,7 +337,7 @@ Select item).CopyToDataTable]</InArgument>
                   <av:Size x:Key="ShapeSize">200,138</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If the Job was executed on a timestamp other than 00:00 of the specified region, throw an exception" DisplayName="Not the Right time" sap:VirtualizedContainerService.HintSize="304,371" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence sap2010:Annotation.AnnotationText="If the Job was executed on a timestamp other than 00:00 of the specified region, throw an exception" DisplayName="Not the Right time" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

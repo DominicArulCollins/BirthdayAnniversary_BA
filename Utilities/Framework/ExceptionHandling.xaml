@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>871,1223</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830,1223</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExceptionHandling_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -81,7 +81,6 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>PSA.Slack.Lib</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="ExceptionHandling" sap:VirtualizedContainerService.HintSize="634,1158" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -126,11 +125,7 @@
       </Variable>
       <Variable x:TypeArguments="x:String" Name="str_SlackExceptionMessage" />
       <Variable x:TypeArguments="x:String" Name="str_IssueDescription" />
-      <Variable x:TypeArguments="x:Boolean" Name="bool_CreateJira">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="bool_CreateJira" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -266,27 +261,13 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ExtractInformationFromException workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Utilities\Framework\ExtractInformationFromException.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">
-                <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="in_Exception" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExMessage">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionMessage" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExStackTrace">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionStackTrace" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExActivityFullName">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionActivityFullName" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExActivityDisplayName">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionActivityDisplayName" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExWorkflowFile">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_ExceptionWorkflowFile" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool_CreateJira">
-                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="bool_CreateJira" />
-              </OutArgument>
+              <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[in_Exception]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExMessage">[str_ExceptionMessage]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExStackTrace">[str_ExceptionStackTrace]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExActivityFullName">[str_ExceptionActivityFullName]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExActivityDisplayName">[str_ExceptionActivityDisplayName]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_ExWorkflowFile">[str_ExceptionWorkflowFile]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool_CreateJira">[bool_CreateJira]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -303,20 +284,20 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,375.5 300,425.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Jira - Sequence" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Jira - Sequence" sap:VirtualizedContainerService.HintSize="304,262" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Initialize" sap:VirtualizedContainerService.HintSize="262,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Initialize" sap:VirtualizedContainerService.HintSize="304,343" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="Assign - Jira Issue Type" sap:VirtualizedContainerService.HintSize="284,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign DisplayName="Assign - Jira Issue Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_IssueType]</OutArgument>
                     </Assign.To>
@@ -324,8 +305,30 @@
                       <InArgument x:TypeArguments="x:String">Bug</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Shared_JiraAuthCredentials" DisplayName="Get Credential - JIRA Auth " sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[secstr_JiraAuthPassword]" Username="[str_JiraAuthUserName]" />
-                  <Assign DisplayName="Assign - Jira Issue Summary" sap:VirtualizedContainerService.HintSize="284,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                  <ui:RetryScope DisplayName="Retry Scope - Get Jira Credentials" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[CInt(io_dict_ConfigValues(&quot;RetryNumber&quot;).ToString)]" RetryInterval="00:00:05">
+                    <ui:RetryScope.ActivityBody>
+                      <ActivityAction>
+                        <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="326,171" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Shared_JiraAuthCredentials" DisplayName="Get Credential - JIRA Auth " sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[secstr_JiraAuthPassword]" Username="[str_JiraAuthUserName]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:RetryScope.ActivityBody>
+                    <ui:RetryScope.Condition>
+                      <ActivityFunc x:TypeArguments="x:Boolean" />
+                    </ui:RetryScope.Condition>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:RetryScope>
+                  <Assign DisplayName="Assign - Jira Issue Summary" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_IssueSummary]</OutArgument>
                     </Assign.To>
@@ -450,10 +453,7 @@
                             </Assign>
                           </Sequence>
                           <FlowStep.Next>
-                            <FlowDecision x:Name="__ReferenceID2" DisplayName="CreateJira?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                              <FlowDecision.Condition>
-                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_CreateJira" />
-                              </FlowDecision.Condition>
+                            <FlowDecision x:Name="__ReferenceID2" Condition="[bool_CreateJira]" DisplayName="CreateJira?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>

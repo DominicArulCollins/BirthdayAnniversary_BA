@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>933,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>902,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -104,6 +104,7 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>PSA.Slack.Lib</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,742" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -243,14 +244,14 @@
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,355" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="663,777" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Extract Engineer Name and Slack user ID" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <Sequence DisplayName="Extract Engineer Name and Slack user ID" sap:VirtualizedContainerService.HintSize="621,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -282,7 +283,7 @@
                                   </Assign.Value>
                                 </Assign>
                               </Sequence>
-                              <Sequence sap2010:Annotation.AnnotationText="Check if the Engineer Slack account is active or deactivated" DisplayName="Check Engineer's Slack account status" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                              <Sequence sap2010:Annotation.AnnotationText="Check if the Engineer Slack account is active or deactivated" DisplayName="Check Engineer's Slack account status" sap:VirtualizedContainerService.HintSize="621,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -305,15 +306,15 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </Assign>
                               </Sequence>
-                              <If Condition="[bool_UserActive]" DisplayName="If - Engineer still active?" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_2">
+                              <If Condition="[bool_UserActive]" DisplayName="If - Engineer still active?" sap:VirtualizedContainerService.HintSize="621,473" sap2010:WorkflowViewState.IdRef="If_2">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence DisplayName="ACTIVE" sap:VirtualizedContainerService.HintSize="304,582" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <Sequence DisplayName="ACTIVE" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -452,14 +453,14 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="DEACTIVATED" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                  <Sequence DisplayName="DEACTIVATED" sap:VirtualizedContainerService.HintSize="376,315" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;User &quot;+str_EngineerName+&quot; is deactivated!&quot;]">
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;User &quot;+str_EngineerName+&quot; is deactivated!&quot;]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -467,10 +468,10 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:LogMessage>
-                                    <p1:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from Birthday Anniversary process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]">
+                                    <p1:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from `&quot;+io_dict_ConfigValues(&quot;ProcessName&quot;).ToString+&quot;` process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>

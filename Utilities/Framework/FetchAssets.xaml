@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>937,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FetchAssets_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -94,19 +94,19 @@
           <av:Size x:Key="ShapeSize">200,66</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="SimpleAssets" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence DisplayName="SimpleAssets" sap:VirtualizedContainerService.HintSize="242,394" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through each Asset name in the SimpleAssets node in the Config and fetch it's value from the Orchestrator." DisplayName="For Each - SimpleAssets  name" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[JArray.Parse(io_dict_ConfigValues(&quot;SimpleAssets&quot;).ToString)]">
+        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through each Asset name in the SimpleAssets node in the Config and fetch it's value from the Orchestrator." DisplayName="For Each - SimpleAssets  name" sap:VirtualizedContainerService.HintSize="434,371" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[JArray.Parse(io_dict_ConfigValues(&quot;SimpleAssets&quot;).ToString)]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,291" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,205" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="str" />
                   <Variable x:TypeArguments="x:String" Name="str_SimpleAssetValue" />
@@ -116,12 +116,34 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[item.ToString]" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
-                  <ui:GetRobotAsset.Value>
-                    <OutArgument x:TypeArguments="x:String">[str_SimpleAssetValue]</OutArgument>
-                  </ui:GetRobotAsset.Value>
-                </ui:GetRobotAsset>
-                <AddToCollection x:TypeArguments="scg:KeyValuePair(x:String, x:Object)" Collection="[io_dict_ConfigValues]" DisplayName="Add To Collection - Output Dictionary" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[new KeyValuePair(of string, object)(item.ToString, str_SimpleAssetValue)]" />
+                <ui:RetryScope DisplayName="Retry Scope - Fetch Assets" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[CInt(io_dict_ConfigValues(&quot;RetryNumber&quot;).ToString)]" RetryInterval="00:00:05">
+                  <ui:RetryScope.ActivityBody>
+                    <ActivityAction>
+                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[item.ToString]" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
+                          <ui:GetRobotAsset.Value>
+                            <OutArgument x:TypeArguments="x:String">[str_SimpleAssetValue]</OutArgument>
+                          </ui:GetRobotAsset.Value>
+                        </ui:GetRobotAsset>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:RetryScope.ActivityBody>
+                  <ui:RetryScope.Condition>
+                    <ActivityFunc x:TypeArguments="x:Boolean" />
+                  </ui:RetryScope.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:RetryScope>
+                <AddToCollection x:TypeArguments="scg:KeyValuePair(x:String, x:Object)" Collection="[io_dict_ConfigValues]" DisplayName="Add To Collection - Output Dictionary" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[new KeyValuePair(of string, object)(item.ToString, str_SimpleAssetValue)]" />
               </Sequence>
             </ActivityAction>
           </ui:ForEach.Body>

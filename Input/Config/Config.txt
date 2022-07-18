@@ -44,6 +44,9 @@
 							"BirthdayImageDownloadPath"		:	"Output\\Images\\Birthday",
 							"WorkAnniversaryImageDownloadPath"	:	"Output\\Images\\Work Anniversary"
 						},
+	"Common"			:	{
+							"RetryNumber"				:	"10"
+						},
 	"GoogleDriveFolderIds"		:	{
 							"BirthdayFolderId"			:	"117GpA_B-HBjgklRfXuGjjunDB1lQqiwQ",
 							"WorkAnniversaryFolderId"		:	"18ybweZIWgvAQQwvqEMumOISKo2tAnRR8"
