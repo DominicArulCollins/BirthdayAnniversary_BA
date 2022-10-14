@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>902,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1046,807</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -291,7 +291,7 @@
                                     <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <p1:GetSlackUserInfo sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="GetSlackUserInfo_1" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" in_str_UserId="[str_EngineerSlackId]" out_jobj_UserInfo="[jobj_UserDetails]" />
+                                <p1:GetSlackUserInfo sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="GetSlackUserInfo_1" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackBotToken&quot;).ToString]" in_str_UserId="[str_EngineerSlackId]" out_jobj_UserInfo="[jobj_UserDetails]" />
                                 <Assign sap2010:Annotation.AnnotationText="&quot;Not&quot; is used to indicate the opposite of the output of the 'deleted' node in the JObject. For example, if the user is deactivated, deleted flag would be true and using not before true will yield false to the bool_UserActive variable" DisplayName="Assign - Check &quot;deleted&quot; node from the JObject" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Boolean">[bool_UserActive]</OutArgument>
@@ -468,7 +468,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:LogMessage>
-                                    <p1:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from `&quot;+io_dict_ConfigValues(&quot;ProcessName&quot;).ToString+&quot;` process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]">
+                                    <p1:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from `&quot;+io_dict_ConfigValues(&quot;ProcessName&quot;).ToString+&quot;` process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackBotToken&quot;).ToString]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>830,1223</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1046,1223</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExceptionHandling_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -81,6 +81,7 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>PSA.Slack.Lib</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="ExceptionHandling" sap:VirtualizedContainerService.HintSize="634,1158" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -147,7 +148,7 @@
           <av:PointCollection x:Key="ConnectorLocation">290,1063.5 290,1099.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If sap2010:Annotation.AnnotationText="Send a Slack message along with exception details when an error occurs. " Condition="[Cbool(io_dict_ConfigValues(&quot;SendExceptionSlackMessage&quot;))]" DisplayName="If - Send Slack Message?" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="If_2">
+      <If sap2010:Annotation.AnnotationText="Send a Slack message along with exception details when an error occurs. " Condition="[Cbool(io_dict_ConfigValues(&quot;SendExceptionSlackMessage&quot;))]" DisplayName="If - Send Slack Message?" sap:VirtualizedContainerService.HintSize="487,453" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -185,9 +186,9 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <p:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[str_SlackExceptionMessage+str_AdditionalMessage]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" out_str_Result="[str_SlackPostMessageAPIResult]" />
+              <p:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[str_SlackExceptionMessage+str_AdditionalMessage]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackBotToken&quot;).ToString]" out_str_Result="[str_SlackPostMessageAPIResult]" />
             </Sequence>
-            <Sequence DisplayName="ReplyToSlackMessageInThreads" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="ReplyToSlackMessageInThreads" sap:VirtualizedContainerService.HintSize="376,377" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -195,7 +196,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jObj_SlackPostMessageAPIResult]" JsonString="[str_SlackPostMessageAPIResult]" />
-              <p:ReplyToSlackMessageInThreads in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ReplyToSlackMessageInThreads_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[io_dict_ConfigValues(&quot;TrackSequence&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackAuthToken&quot;).ToString]" in_str_Ts="[jObj_SlackPostMessageAPIResult(&quot;ts&quot;).ToString]" />
+              <p:ReplyToSlackMessageInThreads in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ReplyToSlackMessageInThreads_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;Shared_ExceptionReportingSlackChannelID&quot;).ToString]" in_str_Message="[io_dict_ConfigValues(&quot;TrackSequence&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackBotToken&quot;).ToString]" in_str_Ts="[jObj_SlackPostMessageAPIResult(&quot;ts&quot;).ToString]" />
             </Sequence>
           </Sequence>
         </If.Then>
@@ -284,7 +285,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,375.5 300,425.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Jira - Sequence" sap:VirtualizedContainerService.HintSize="304,262" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Jira - Sequence" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

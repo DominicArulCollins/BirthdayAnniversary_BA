@@ -5,7 +5,6 @@
 	"SimpleAssets"			:	[
 							"Shared_Timeout_L",
 							"Shared_Timeout_S",
-							"Shared_SlackAuthToken",
 							"Shared_SlackBotToken",
 							"Shared_ExceptionReportingSlackChannelID", 
 							"Shared_JiraServerUrl",
