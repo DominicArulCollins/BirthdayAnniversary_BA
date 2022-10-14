@@ -1,0 +1,16 @@
+{0} *{1}* process - _{2}_ sequence: 
+
+{{{{{3}}}}}
+
+-----------------------
+
+*Activity Display Name:* {4}
+*Activity Source Full Name:* {5}
+*Workflow File:* {6}
+*Process version:* {7}
+*Robot name:* {8}
+*Triggered from:* {9}
+{10}
+-----------------------
+
+*Stack Trace:* {11}

@@ -1,0 +1,56 @@
+{
+	"TrackSequence"			:	"*Workflow Trace - Breadcrumbs:*",
+	"KillProcess"			:	[
+						],
+	"SimpleAssets"			:	[
+							"Shared_Timeout_L",
+							"Shared_Timeout_S",
+							"Shared_SlackAuthToken",
+							"Shared_SlackBotToken",
+							"Shared_ExceptionReportingSlackChannelID", 
+							"Shared_JiraServerUrl",
+							"Shared_JiraProjectSpace",
+							"Shared_GoogleAPIServiceAccountEmail",
+							"Shared_GoogleAPICredentialStorageBucketName",
+							"Shared_GoogleAPICredentialStorageFilePath",
+							"BA_GSheetID",
+							"BA_GSheetName",
+							"BA_NotifySlackChannelID",
+							"BA_EngineerDeactivationInfoNotifySlackChannelID"
+
+							
+						],
+	"Flags"				:	{
+							"IsUIAProcess"			: 	false,
+							"SendExceptionSlackMessage"	:	true
+						},
+	"Exception"			:	{
+							"ExceptionImageFilePath"		:	"C:\\AutomationExceptionScreenshots",
+							"ExceptionFileNameFormat"		:	"dd_MMM_yyyy_HH_mm_ss",
+							"ExceptionMessage"			:	"An exception occurred in",
+							"SlackExceptionMessageTemplatePath"	:	"Input\\Config\\Slack-ExceptionMessageTemplate.txt",
+							"JiraExceptionMessageTemplatePath"	:	"Input\\Config\\Jira-ExceptionMessageTemplate.txt",
+							"JiraIssueLink"				:	"https://uipath.atlassian.net/browse/"
+						},
+	"FetchJobDetails"		:	[
+							"ProcessName", 
+							"ProcessVersion",
+							"InitiatedBy",
+							"RobotName"
+						],
+	"FilePaths"			:	{
+							"BirthdayTemplatePath"			:	"Input\\Templates\\BirthdayTemplate.txt",
+							"WorkAnniversaryTemplatePath"		:	"Input\\Templates\\WorkAnniversaryTemplate.txt",
+							"BirthdayImageDownloadPath"		:	"Output\\Images\\Birthday",
+							"WorkAnniversaryImageDownloadPath"	:	"Output\\Images\\Work Anniversary"
+						},
+	"Common"			:	{
+							"RetryNumber"				:	"10"
+						},
+	"GoogleDriveFolderIds"		:	{
+							"BirthdayFolderId"			:	"117GpA_B-HBjgklRfXuGjjunDB1lQqiwQ",
+							"WorkAnniversaryFolderId"		:	"18ybweZIWgvAQQwvqEMumOISKo2tAnRR8"
+						},
+	"TagNotifyUserDeactivation"	:	"<@WLXPFFWS1> <@WLXNSLJ9W>"
+}
+

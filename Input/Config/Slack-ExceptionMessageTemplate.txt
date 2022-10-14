@@ -1,0 +1,6 @@
+:siren_red: {0} *`{1}`* process - _{2}_ sequence: 
+```{3}```
+Activity Name: {4}
+Workflow File: {5}
+Triggered from: {6}
+Robot Name: {7}
