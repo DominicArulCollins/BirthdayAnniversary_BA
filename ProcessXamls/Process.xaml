@@ -104,7 +104,6 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>PSA.Slack.Lib</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,742" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -468,7 +467,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:LogMessage>
-                                    <p1:PostMessageToSlack in_bool_AsUser="{x:Null}" in_str_Blocks="{x:Null}" out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from `&quot;+io_dict_ConfigValues(&quot;ProcessName&quot;).ToString+&quot;` process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackBotToken&quot;).ToString]">
+                                    <p1:PostMessageToSlack out_str_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="PostMessageToSlack_1" in_bool_AsApp="True" in_str_Blocks="%[]" in_str_ChannelId="[io_dict_ConfigValues(&quot;BA_EngineerDeactivationInfoNotifySlackChannelID&quot;).ToString]" in_str_Message="[&quot;:information_source: A message from `&quot;+io_dict_ConfigValues(&quot;ProcessName&quot;).ToString+&quot;` process:&quot;+vblf+&quot;User &quot;+str_EngineerName+&quot; is deactivated already!&quot;+vblf+&quot;FYI &quot;+io_dict_ConfigValues(&quot;TagNotifyUserDeactivation&quot;).ToString]" in_str_Token="[io_dict_ConfigValues(&quot;Shared_SlackBotToken&quot;).ToString]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
