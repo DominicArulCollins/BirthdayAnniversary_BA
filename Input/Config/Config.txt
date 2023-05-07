@@ -50,6 +50,6 @@
 							"BirthdayFolderId"			:	"117GpA_B-HBjgklRfXuGjjunDB1lQqiwQ",
 							"WorkAnniversaryFolderId"		:	"18ybweZIWgvAQQwvqEMumOISKo2tAnRR8"
 						},
-	"TagNotifyUserDeactivation"	:	"<@WLXPFFWS1> <@WLXNSLJ9W>"
+	"TagNotifyUserDeactivation"	:	"<@WLXPFFWS1>"
 }
 
