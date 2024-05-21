@@ -5,7 +5,7 @@
   "dependencies": {
     "PSA.GSuite.Lib": "[22.4.0]",
     "PSA.RunningJobInformation.Activities": "[22.3.0]",
-    "PSA.Slack.Lib": "[22.8.0]",
+    "PSA.Slack.Lib": "[24.5.0]",
     "UiPath.Jira.Activities": "[2.2.0]",
     "UiPath.System.Activities": "[21.10.4]",
     "UiPath.UIAutomation.Activities": "[21.10.4]",
@@ -15,7 +15,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "23.5.0",
+  "projectVersion": "24.5.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
